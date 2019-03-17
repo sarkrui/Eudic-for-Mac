@@ -1,7 +1,7 @@
 # Eudic-for-Mac
 an OSX shell script to install Eudic on your Mac, Mojave supported.
 
-![image-20190317222422717](https://i.imgur.com/Ij75A17.png)
+![image-20190317222632576](https://i.imgur.com/QUPZKPt.png)
 
 ### Manual
 
