@@ -7,7 +7,6 @@ cd "$(dirname "$0")"
 #Uninstall previous Eudic.app and restore preferences
 echo "Removing Eudic..."
 brew install wget 
-wget https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.1/eudicmac_3.8.2.dmg
 hdiutil attach eudicmac_3.8.2.dmg
 
 sudo rm -r /Applications/Eudic.app

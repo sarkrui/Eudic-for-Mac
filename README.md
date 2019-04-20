@@ -5,20 +5,20 @@ an OSX shell script to install Eudic on your Mac, Mojave supported.
 
 ### Manual
 
-1. Clone my repository 
+1. 克隆库
 
-   > git@github.com:sarkrui/Eudic-for-Mac.git
+   > git clone https://github.com/sarkrui/Eudic-for-Mac.git
 
-2. Change working directory
+2. 更改工作路径
 
    > cd Eudic-for-Mac
 
-3. Execute the script
+3. 执行脚本
 
    > chmod +x Eudic && ./Eudic
 
-4. Add 3rd party dictionary 
+4. 添加第三方 mdict 词典
 
-   -  Download .mdict dictionary from my https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.0.1/8.mdict.zip page 
-   -  Unzip the package 
-   -  Drag and drop the `.mdict` file in Eudic on the `Dictionary Management` page
+   -  下载 [牛津高阶 mdict 词库](https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.0.1/8.mdict.zip) 
+   -  解压压缩包
+   -  将 `mdict` 文件拖拽进欧路词典的`词典管理`页面
