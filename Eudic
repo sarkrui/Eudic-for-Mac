@@ -22,6 +22,7 @@ sudo rm -r ~/Library/Application\ Support/com.eusoft.eudic
 echo "Installing Eudic..."
 sudo cp -R /Volumes/Eudic\ 欧路词典/Eudic.app /Applications/
 sudo cp com.eusoft.eudic.plist ~/Library/Preferences/com.eusoft.eudic.plist
+sudo chflags uchg ~/Library/Preferences/com.eusoft.eudic.plist
 
 echo "Done."
 echo "Enjoy it!"
