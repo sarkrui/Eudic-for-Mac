@@ -6,7 +6,7 @@ cd "$(dirname "$0")"
 
 #Uninstall previous Eudic.app and restore preferences
 echo "Removing Eudic..."
-brew install wget 
+brew install wget
 hdiutil attach eudicmac_3.8.2.dmg
 
 sudo rm -r /Applications/Eudic.app
@@ -21,7 +21,7 @@ sudo rm -r ~/Library/Application\ Support/com.eusoft.eudic
 #Install Eudic and replace plist
 echo "Installing Eudic..."
 sudo cp -R /Volumes/Eudic\ 欧路词典/Eudic.app /Applications/
-sudo cp com.eusoft.eudic.plist ~/Library/Preferences/com.eusoft.eudic.plist
+sudo cp com.eusoft.eudic.plist ~/Library/Preferences/
 sudo chflags uchg ~/Library/Preferences/com.eusoft.eudic.plist
 
 echo "Done."
