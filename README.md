@@ -3,7 +3,15 @@ an OSX shell script to install Eudic on your Mac, Mojave supported.
 
 ![image-20190317222632576](https://i.imgur.com/QUPZKPt.png)
 
-### Manual
+### 一键安装
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Eudic)"
+```
+
+
+
+### 手动安装
 
 1. 克隆库
 
