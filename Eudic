@@ -2,7 +2,8 @@
 #Scripted by Sark Xing
 
 #Change working directory
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" && mkdir ~/Downloads/Eudic && cd  ~/Downloads/Eudic
+
 
 #Check if brew installed
 which -s brew
@@ -22,12 +23,22 @@ else
 	echo "wget, brew installed"
 fi
 
+#Check if aria2 installed
+which -s aria2c
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    brew install aria2 
+else
+	echo "wget, brew, aria2 installed"
+fi
+
 #Uninstall previous Eudic.app and restore preferences
 echo "Removing Eudic..."
 
-wget https://github.com/sarkrui/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist
-wget --no-check-certificate -q --show-progress --progress=bar:force 2>&1 https://github.com/sarkrui/Eudic-for-Mac/raw/master/eudicmac_3.8.2.dmg
+wget --no-check-certificate https://github.com/sarkrui/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist
+aria2c --enable-rpc=false -c -x16 https://github.com/sarkrui/Eudic-for-Mac/raw/master/eudicmac_3.8.2.dmg
 hdiutil attach eudicmac_3.8.2.dmg -nobrowse 
+echo "请输入锁屏密码"
 
 sudo chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist
 sudo rm -r /Applications/Eudic.app
@@ -53,16 +64,30 @@ while true; do
 	case $yn in
     	[Yy]* ) 
 			echo "正在下载词典文件..."
-			wget --no-check-certificate -q --show-progress --progress=bar:force 2>&1 https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.0.1/Oxford_mdict.zip
+			aria2c --enable-rpc=false -c -x16 https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.0.1/Oxford_mdict.zip
 			unzip Oxford_mdict.zip
 			echo "安装词典文件..."
 			sudo cp  Oxford_mdict/O8C.* ~/Library/Eudb_en/
-
 		break;;
     	[Nn]* ) 
 			exit;;
-    	* ) echo "Please answer yes or no.";;
+    	* ) echo "输入错误";;
 	esac
 done
+
+#卸载安装文件
+while true; do
+	read -p "你想要卸载安装文件吗？(Y/N)" yn
+	case $yn in
+    	[Yy]* ) 
+			echo "正在卸载..."
+			rm -R -f ~/Downloads/Eudic
+		break;;
+    	[Nn]* ) 
+			exit;;
+    	* ) echo "输入错误";;
+	esac
+done
+
 echo "Done."
 echo "Enjoy it!"
