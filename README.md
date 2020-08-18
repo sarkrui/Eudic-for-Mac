@@ -22,7 +22,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/mast
 3. 执行脚本
    > chmod +x Eudic && ./Eudic
 4. 添加第三方 mdict 词典
-   -  下载 [牛津高阶 mdict 词库](https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.0.1/8.mdict.zip) 
+   -  下载 [牛津高阶 mdict 词库](https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.0.1/Oxford_mdict.zip) 
    -  解压压缩包
    -  将 `mdict` 文件拖拽进欧路词典的`词典管理`页面
 </details>
