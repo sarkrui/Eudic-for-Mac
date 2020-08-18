@@ -34,7 +34,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/mast
 
 
 ### 启用词词库
-<img src="/Users/p.xing/Library/Application Support/typora-user-images/image-20200818182209777.png" alt="image-20200818182209777" style="zoom:25%;" />| <img src="/Users/p.xing/Library/Application Support/typora-user-images/image-20200818182352595.png" alt="image-20200818182352595" style="zoom:25%;" />
+<img src="https://i.imgur.com/Xy9lUcB.png" alt="image-20200818182209777" style="zoom:25%;" />| <img src="https://i.imgur.com/K8JDSud.png" alt="image-20200818182352595" style="zoom:25%;" />
 
 
 
