@@ -10,7 +10,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/mast
 ```
 
 
-
 ### 手动安装
 
 1. 克隆库
@@ -30,3 +29,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/mast
    -  下载 [牛津高阶 mdict 词库](https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.0.1/8.mdict.zip) 
    -  解压压缩包
    -  将 `mdict` 文件拖拽进欧路词典的`词典管理`页面
+
+
+
+
+### 启用词词库
+<img src="/Users/p.xing/Library/Application Support/typora-user-images/image-20200818182209777.png" alt="image-20200818182209777" style="zoom:25%;" />| <img src="/Users/p.xing/Library/Application Support/typora-user-images/image-20200818182352595.png" alt="image-20200818182352595" style="zoom:25%;" />
+
+
+
+
