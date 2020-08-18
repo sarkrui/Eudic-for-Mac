@@ -4,11 +4,30 @@
 #Change working directory
 cd "$(dirname "$0")"
 
+#Check if brew installed
+which -s brew
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+    brew update
+fi
+
+#Check if wget installed
+which -s wget
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    brew install wget
+else
+	echo "wget, brew installed"
+fi
+
 #Uninstall previous Eudic.app and restore preferences
 echo "Removing Eudic..."
-brew install wget
+
+wget https://github.com/sarkrui/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist
 wget --no-check-certificate -q --show-progress --progress=bar:force 2>&1 https://github.com/sarkrui/Eudic-for-Mac/raw/master/eudicmac_3.8.2.dmg
-hdiutil attach eudicmac_3.8.2.dmg
+hdiutil attach eudicmac_3.8.2.dmg -nobrowse 
 
 sudo chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist
 sudo rm -r /Applications/Eudic.app
@@ -29,18 +48,21 @@ sudo cp com.eusoft.eudic.plist ~/Library/Preferences/
 sudo chflags uchg ~/Library/Preferences/com.eusoft.eudic.plist
 
 #下载牛津高阶词典
-	while true; do
-    	read -p "你想要下载牛津高阶词典吗？(Y/N)" yn
-    	case $yn in
-        	[Yy]* ) 
-				echo "正在下载词典文件..."
-				wget --no-check-certificate -q --show-progress --progress=bar:force 2>&1 https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.0.1/Oxford_mdict.zip
-				unzip Oxford_mdict.zip
-				echo "安装词典文件..."
-				sudo cp  Oxford_mdict/O8C.* ~/Library/Eudb_en/
+while true; do
+	read -p "你想要下载牛津高阶词典吗？(Y/N)" yn
+	case $yn in
+    	[Yy]* ) 
+			echo "正在下载词典文件..."
+			wget --no-check-certificate -q --show-progress --progress=bar:force 2>&1 https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.0.1/Oxford_mdict.zip
+			unzip Oxford_mdict.zip
+			echo "安装词典文件..."
+			sudo cp  Oxford_mdict/O8C.* ~/Library/Eudb_en/
 
-			break;;
-        	[Nn]* ) 
-
+		break;;
+    	[Nn]* ) 
+			exit;;
+    	* ) echo "Please answer yes or no.";;
+	esac
+done
 echo "Done."
 echo "Enjoy it!"
