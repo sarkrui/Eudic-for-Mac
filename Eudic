@@ -28,5 +28,19 @@ sudo rm ~/Library/Preferences/com.eusoft.eudic.plist
 sudo cp com.eusoft.eudic.plist ~/Library/Preferences/
 sudo chflags uchg ~/Library/Preferences/com.eusoft.eudic.plist
 
+#下载牛津高阶词典
+	while true; do
+    	read -p "你想要下载牛津高阶词典吗？(Y/N)" yn
+    	case $yn in
+        	[Yy]* ) 
+				echo "正在下载词典文件..."
+				wget --no-check-certificate -q --show-progress --progress=bar:force 2>&1 https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.0.1/Oxford_mdict.zip
+				unzip Oxford_mdict.zip
+				echo "安装词典文件..."
+				sudo cp  Oxford_mdict/O8C.* ~/Library/Eudb_en/
+
+			break;;
+        	[Nn]* ) 
+
 echo "Done."
 echo "Enjoy it!"
