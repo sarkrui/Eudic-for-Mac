@@ -81,6 +81,7 @@ while true; do
 	case $yn in
     	[Yy]* ) 
 			echo "正在卸载..."
+			hdiutil detach /Volumes/Eudic\ 欧路词典 
 			rm -R -f ~/Downloads/Eudic
 		break;;
     	[Nn]* ) 
