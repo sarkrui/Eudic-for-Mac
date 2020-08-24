@@ -1,7 +1,7 @@
 #! /bin/bash
 #Scripted by Sark Xing
 
-#Change working directory
+# Make a foler and change working directory to the new folder
 cd "$(dirname "$0")" && mkdir ~/Downloads/Eudic && cd  ~/Downloads/Eudic
 
 
@@ -36,9 +36,11 @@ fi
 echo "Removing Eudic..."
 
 wget --no-check-certificate https://github.com/sarkrui/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist
-aria2c --enable-rpc=false -c -x16 https://github.com/sarkrui/Eudic-for-Mac/raw/master/eudicmac_3.8.2.dmg
+aria2c --enable-rpc=false -c -x16 https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.1/eudicmac_3.8.2.dmg
 hdiutil attach eudicmac_3.8.2.dmg -nobrowse 
 echo "请输入锁屏密码"
+echo "为什么需要输入密码？"
+echo "替换和锁定 com.eusoft.eudic 文件需要最高操作权限"
 
 sudo chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist
 sudo rm -r /Applications/Eudic.app

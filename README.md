@@ -30,8 +30,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/mast
   -  将 `mdict` 文件拖拽进欧路词典的`词典管理`页面
   </details>
 
-
-### 启用词词库
+### 启用词库
 
 <details>
   <summary>点击展开</summary>
