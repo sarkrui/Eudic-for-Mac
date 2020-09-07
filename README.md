@@ -1,15 +1,31 @@
 # Eudic-for-Mac
 一键安装欧路词典并导入第三方 mdict 词库（牛津高阶词典）
 
-![image-20190317222632576](https://i.imgur.com/QUPZKPt.png)
+### 效果展示
+
+![](https://i.imgur.com/E1f4kqb.gif)
+
+<details>
+  <summary>安装成功</summary>
+  <img src="https://i.imgur.com/QUPZKPt.png" alt="image-20200818182209777" style="zoom:40%;" />
+</details>
+
 
 ### 一键安装
+
+#### 原生下载
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Eudic)"
 ```
 
+####天朝优化版
 
+(Homebrew 使用国内高校镜像源、安装文件托管再 One Drive)
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Eudic_cn)"
+```
 
 ### 手动安装
 

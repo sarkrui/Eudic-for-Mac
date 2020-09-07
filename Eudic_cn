@@ -1,0 +1,99 @@
+#! /bin/bash
+#Scripted by Sark Xing
+
+# Make a foler and change working directory to the new folder
+cd "$(dirname "$0")" && mkdir ~/Downloads/Eudic && cd  ~/Downloads/Eudic
+
+
+Eudicurl="https://verynerd-my.sharepoint.com/personal/admin_verynerd_onmicrosoft_com/_layouts/15/download.aspx?UniqueId=494710cc-6e16-4bd2-bddc-57f38d46483f&Translate=false&tempauth=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvdmVyeW5lcmQtbXkuc2hhcmVwb2ludC5jb21AMjY3YzQ1MjMtNzI5MC00ZmM5LWE0MDMtMjgyNjFkMDM3ZmFiIiwiaXNzIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwIiwibmJmIjoiMTU5OTQ3NzA1MSIsImV4cCI6IjE1OTk0ODA2NTEiLCJlbmRwb2ludHVybCI6InJJVjNOMFE1ZzNvUGcxZ1BTRDdBQW5yRjEwNVNqc1hrVm5sRVFNYVdRTzg9IiwiZW5kcG9pbnR1cmxMZW5ndGgiOiIxNjIiLCJpc2xvb3BiYWNrIjoiVHJ1ZSIsImNpZCI6Ik9EQTBOVFk0WlRBdE1XSmhNUzAwTlRBeExXRTNNMll0TURZMlltTmtZbVV6TURNMyIsInZlciI6Imhhc2hlZHByb29mdG9rZW4iLCJzaXRlaWQiOiJNakkyTWpobFlXSXRNMlkwTVMwME5qUm1MVGxtT1dVdFpEWm1NMk0zTWpZMlpHTm0iLCJhcHBfZGlzcGxheW5hbWUiOiJDbG91ZHJldmUiLCJnaXZlbl9uYW1lIjoiU2FyayIsImZhbWlseV9uYW1lIjoiWGluZyIsImFwcGlkIjoiNjBmN2QwZTctNWQ4OC00ZTE3LWFiZmUtYWE4MGUxYzczZGVhIiwidGlkIjoiMjY3YzQ1MjMtNzI5MC00ZmM5LWE0MDMtMjgyNjFkMDM3ZmFiIiwidXBuIjoiYWRtaW5AdmVyeW5lcmQub25taWNyb3NvZnQuY29tIiwicHVpZCI6IjEwMDMyMDAwREU0RDEyQzUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMGRlNGQxMmM1QGxpdmUuY29tIiwic2NwIjoiYWxsZmlsZXMud3JpdGUiLCJ0dCI6IjIiLCJ1c2VQZXJzaXN0ZW50Q29va2llIjpudWxsfQ.R0xwL29rUkFQS25QTFpabTE5ci9aa3d4TCtwVmorTzRmaDM2dCtTZitFVT0&ApiVersion=2.0"
+Oxfordurl="https://verynerd-my.sharepoint.com/personal/admin_verynerd_onmicrosoft_com/_layouts/15/download.aspx?UniqueId=95d38b63-7ec4-475f-9617-fb3342e2eb96&Translate=false&tempauth=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvdmVyeW5lcmQtbXkuc2hhcmVwb2ludC5jb21AMjY3YzQ1MjMtNzI5MC00ZmM5LWE0MDMtMjgyNjFkMDM3ZmFiIiwiaXNzIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwIiwibmJmIjoiMTU5OTQ3NzA4OSIsImV4cCI6IjE1OTk0ODA2ODkiLCJlbmRwb2ludHVybCI6ImZHWWs3TkVPNDBwTzdTeDF3dGF3bXhDckNZZXJoVi9IZ3NtdXdNSmV5SzQ9IiwiZW5kcG9pbnR1cmxMZW5ndGgiOiIxNjIiLCJpc2xvb3BiYWNrIjoiVHJ1ZSIsImNpZCI6Ik9UUXdORFpsTmprdFpHRmxNeTAwTmpRMkxXSTVaV1V0WVRNNVpqRTBaakZoWTJZMyIsInZlciI6Imhhc2hlZHByb29mdG9rZW4iLCJzaXRlaWQiOiJNakkyTWpobFlXSXRNMlkwTVMwME5qUm1MVGxtT1dVdFpEWm1NMk0zTWpZMlpHTm0iLCJhcHBfZGlzcGxheW5hbWUiOiJDbG91ZHJldmUiLCJnaXZlbl9uYW1lIjoiU2FyayIsImZhbWlseV9uYW1lIjoiWGluZyIsImFwcGlkIjoiNjBmN2QwZTctNWQ4OC00ZTE3LWFiZmUtYWE4MGUxYzczZGVhIiwidGlkIjoiMjY3YzQ1MjMtNzI5MC00ZmM5LWE0MDMtMjgyNjFkMDM3ZmFiIiwidXBuIjoiYWRtaW5AdmVyeW5lcmQub25taWNyb3NvZnQuY29tIiwicHVpZCI6IjEwMDMyMDAwREU0RDEyQzUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMGRlNGQxMmM1QGxpdmUuY29tIiwic2NwIjoiYWxsZmlsZXMud3JpdGUiLCJ0dCI6IjIiLCJ1c2VQZXJzaXN0ZW50Q29va2llIjpudWxsfQ.UVpyVU9yY0VGRmNjcnQza09Ja2dtbzZ4N29OYlNtVkRDY3d0ZFBselNUZz0&ApiVersion=2.0"
+
+#Check if brew installed
+which -s brew
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    /bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
+else
+    brew update
+fi
+
+#Check if wget installed
+which -s wget
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    brew install wget
+else
+	echo "wget, brew installed"
+fi
+
+#Check if aria2 installed
+which -s aria2c
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    brew install aria2 
+else
+	echo "wget, brew, aria2 installed"
+fi
+
+#Uninstall previous Eudic.app and restore preferences
+echo "Removing Eudic..."
+
+wget --no-check-certificate https://github.com/sarkrui/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist
+aria2c --enable-rpc=false -c -x16 $Eudicurl -o eudicmac_3.8.2.1.dmg
+hdiutil attach eudicmac_3.8.2.dmg -nobrowse 
+echo "请输入锁屏密码"
+echo "为什么需要输入密码？"
+echo "替换和锁定 com.eusoft.eudic 文件需要最高操作权限"
+
+sudo chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist
+sudo rm -r /Applications/Eudic.app
+sudo rm -r /Applications/Eudb_en.app
+sudo rm ~/Library/Preferences/com.eusoft.eudic.plist
+sudo rm ~/Library/Cookies/com.eusoft.eudic.LightPeek.binarycookies
+sudo rm ~/Library/Cookies/com.eusoft.eudic.binarycookies
+sudo rm -r ~/Library/Saved\ Application\ State/com.eusoft.eudic.savedState
+sudo rm -r ~/Library/Caches/com.eusoft.eudic
+sudo rm -r ~/Library/Application\ Support/com.eusoft.eudic
+
+#Install Eudic and replace plist
+echo "Installing Eudic..."
+sudo cp -R /Volumes/Eudic\ 欧路词典/Eudic.app /Applications/
+sudo chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist
+sudo rm ~/Library/Preferences/com.eusoft.eudic.plist
+sudo cp com.eusoft.eudic.plist ~/Library/Preferences/
+sudo chflags uchg ~/Library/Preferences/com.eusoft.eudic.plist
+
+#下载牛津高阶词典
+while true; do
+	read -p "你想要下载牛津高阶词典吗？(Y/N)" yn
+	case $yn in
+    	[Yy]* ) 
+			echo "正在下载词典文件..."
+			aria2c --enable-rpc=false -c -x16 $Oxfordurl -o Oxford_mdict.zip
+			unzip Oxford_mdict.zip
+			echo "安装词典文件..."
+			sudo cp  Oxford_mdict/O8C.* ~/Library/Eudb_en/
+		break;;
+    	[Nn]* ) 
+			exit;;
+    	* ) echo "输入错误";;
+	esac
+done
+
+#卸载安装文件
+while true; do
+	read -p "你想要卸载安装文件吗？(Y/N)" yn
+	case $yn in
+    	[Yy]* ) 
+			echo "正在卸载..."
+			hdiutil detach /Volumes/Eudic\ 欧路词典 
+			rm -R -f ~/Downloads/Eudic
+		break;;
+    	[Nn]* ) 
+			exit;;
+    	* ) echo "输入错误";;
+	esac
+done
+
+echo "Done."
+echo "Enjoy it!"
