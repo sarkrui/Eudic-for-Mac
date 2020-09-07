@@ -3,7 +3,7 @@
 
 ### 效果展示
 
-![](https://i.imgur.com/E1f4kqb.gif)
+![](https://i.imgur.com/zC1P0pt.gif)
 
 <details>
   <summary>安装成功</summary>
@@ -19,9 +19,9 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Eudic)"
 ```
 
-####天朝优化版
+#### 天朝优化版
 
-(Homebrew 使用国内高校镜像源、安装文件托管再 One Drive)
+(Homebrew 使用国内高校镜像源、安装文件托管于 One Drive)
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Eudic_cn)"
