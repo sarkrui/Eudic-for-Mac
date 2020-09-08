@@ -5,8 +5,8 @@
 cd "$(dirname "$0")" && mkdir ~/Downloads/Eudic && cd  ~/Downloads/Eudic
 
 
-Eudicurl=""
-Oxfordurl=""
+Eudicurl="https://verynerd.oss-cn-shenzhen.aliyuncs.com/project/eudic/eudicmac_3.8.2.dmg"
+Oxfordurl="https://verynerd.oss-cn-shenzhen.aliyuncs.com/project/eudic/Oxford_mdict.zip"
 
 #Check if brew installed
 which -s brew
