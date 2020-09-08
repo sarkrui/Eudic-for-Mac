@@ -1,4 +1,5 @@
 # Eudic-for-Mac
+
 一键安装欧路词典并导入第三方 mdict 词库（牛津高阶词典）
 
 ### 效果展示
@@ -21,11 +22,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/mast
 
 #### 天朝优化版
 
-(Homebrew 使用国内高校镜像源、安装文件托管于 One Drive)
+(Homebrew 使用国内高校镜像源、安装文件托管于阿里云)
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Eudic_cn)"
 ```
+
+
 
 ### 手动安装
 

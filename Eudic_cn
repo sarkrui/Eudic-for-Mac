@@ -1,5 +1,5 @@
 #! /bin/bash
-#Scripted by Sark Xing
+# Scripted by Sark Xing
 
 # Make a foler and change working directory to the new folder
 cd "$(dirname "$0")" && mkdir ~/Downloads/Eudic && cd  ~/Downloads/Eudic
@@ -7,6 +7,7 @@ cd "$(dirname "$0")" && mkdir ~/Downloads/Eudic && cd  ~/Downloads/Eudic
 
 Eudicurl="https://verynerd.oss-cn-shenzhen.aliyuncs.com/project/eudic/eudicmac_3.8.2.dmg"
 Oxfordurl="https://verynerd.oss-cn-shenzhen.aliyuncs.com/project/eudic/Oxford_mdict.zip"
+plisturl="https://gitee.com/sark/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist"
 
 #Check if brew installed
 which -s brew
@@ -38,7 +39,7 @@ fi
 #Uninstall previous Eudic.app and restore preferences
 echo "Removing Eudic..."
 
-wget --no-check-certificate https://github.com/sarkrui/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist
+wget --no-check-certificate $plisturl
 aria2c --enable-rpc=false -c -x16 $Eudicurl -o eudicmac_3.8.2.1.dmg
 hdiutil attach eudicmac_3.8.2.dmg -nobrowse 
 echo "请输入锁屏密码"
