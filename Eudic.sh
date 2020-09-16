@@ -6,13 +6,9 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-	echo "正在安装..."
-
-	# Make a foler and change working directory to the new folder
-
-
-	if [ -d "~/Downloads/Eudic" ]] ; then
-		echo "移除旧文件"
+	if [[ -d ~/Downloads/Eudic ]]; then
+		#Uninstall previous Eudic.app and restore preferences
+		echo "正在卸载旧版欧路词典..."
 		rm -R ~/Downloads/Eudic
 		mkdir ~/Downloads/Eudic && cd  ~/Downloads/Eudic
 
@@ -27,7 +23,7 @@ then
 		echo "正在安装 Homebrew"
 	    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	else
-		echo "正在更新 Homebrew"	
+		echo "正在更新 Homebrew..."	
 	    brew update
 	fi
 
@@ -51,10 +47,7 @@ then
 		echo "wget, brew, aria2 安装完成！"
 	fi
 
-	#Uninstall previous Eudic.app and restore preferences
-	echo "正在卸载旧版欧路词典..."
-
-	wget --no-check-certificate https://github.com/sarkrui/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist
+	wget -q --show-progress --no-check-certificate https://github.com/sarkrui/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist
 	aria2c --enable-rpc=false -c -x16 https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.1/eudicmac_3.8.2.dmg
 	hdiutil attach eudicmac_3.8.2.dmg -nobrowse 
 	echo "请输入锁屏密码"
@@ -85,7 +78,7 @@ then
 		case $yn in
 	    	[Yy]* ) 
 				echo "正在下载词典文件..."
-				aria2c --enable-rpc=false -c -x16 https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.0.1/Oxford_mdict.zip
+				aria2c -q --enable-rpc=false -c -x16 https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.0.1/Oxford_mdict.zip
 				unzip Oxford_mdict.zip
 				echo "安装词典文件..."
 				sudo cp Oxford_mdict/O8C.* ~/Library/Eudb_en/
@@ -111,8 +104,9 @@ then
 		esac
 	done
 
-	echo "Done."
-	echo "Enjoy it!"
+	Clear;
+	echo "安装已完成!"
+
 else 
 	echo "安装已取消！"
 fi
