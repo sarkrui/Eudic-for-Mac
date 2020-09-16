@@ -1,7 +1,8 @@
 #!/bin/bash
 
-shc -f Eudic.sh && mv Eudic.sh.x Eudic && rm **.sh.x.c && mv Eudic Release
-shc -f Eudic_cn.sh && mv Eudic_cn.sh.x Eudic_cn && rm **.sh.x.c && mv Eudic_cn Release
-shc -f Activation.sh && mv Activation.sh.x Activation && rm **.sh.x.c && mv Activation Release
+# Create redistributable encrypted shell scripts
+shc -e 31/12/9999 -r -f Eudic.sh -o Release/Eudic && rm **.sh.x.c
+shc -e 31/12/9999 -r -f Eudic_cn.sh -o Release/Eudic_cn && rm **.sh.x.c 
+shc -e 31/12/9999 -r -f Activation.sh -o Release/Activation && rm **.sh.x.c 
 
 echo "Compile finished."
