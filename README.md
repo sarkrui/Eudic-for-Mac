@@ -28,6 +28,19 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/mast
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Eudic_cn)"
 ```
 
+### 重新安装
+
+<details>
+  <summary>点击展开</summary>
+
+  <markdown>
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Activation)"
+```
+  </markdown>
+
+</details>
 
 
 ### 手动安装
@@ -56,8 +69,3 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/mast
   <img src="https://i.imgur.com/Xy9lUcB.png" alt="image-20200818182209777" style="zoom:40%;" />
   <img src="https://i.imgur.com/K8JDSud.png" alt="image-20200818182352595" style="zoom:40%;" />
 </details>
-
-
-
-
-
