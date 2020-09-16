@@ -1,9 +1,6 @@
 #! /bin/bash
 # Scripted by Sark Xing
 
-# Make a foler and change working directory to the new folder
-cd "$(dirname "$0")" && mkdir ~/Downloads/Eudic && cd  ~/Downloads/Eudic
-
 # Uninstall previous Eudic.app and restore preferences
 
 read -p "你确定要重新安装欧路词典吗？[Y/N]" -n 1 -r
@@ -12,6 +9,8 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	echo "正在重新安装..."
 
+	# Make a foler and change working directory to the new folder
+	cd "$(dirname "$0")" && mkdir ~/Downloads/Eudic && cd  ~/Downloads/Eudic
 	wget --no-check-certificate https://github.com/sarkrui/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist
 	sudo chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist
 	sudo rm ~/Library/Preferences/com.eusoft.eudic.plist
