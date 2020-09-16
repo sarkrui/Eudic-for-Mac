@@ -17,7 +17,7 @@
 #### 原生下载
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Eudic)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Eudic.sh)"
 ```
 
 #### 天朝优化版
@@ -25,7 +25,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/mast
 (Homebrew 使用国内高校镜像源、安装文件托管于阿里云)
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Eudic_cn)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Eudic_cn.sh)"
 ```
 
 ### 重新安装
@@ -36,7 +36,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/mast
   <markdown>
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Activation)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Activation.sh)"
 ```
   </markdown>
 
