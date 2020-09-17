@@ -9,7 +9,6 @@ read -p "你确定要安装欧路词典吗？[Y/N]" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-
 	if [[ -d ~/Downloads/Eudic ]]; then
 		#Uninstall previous Eudic.app and restore preferences
 		echo "正在卸载旧版欧路词典..."
