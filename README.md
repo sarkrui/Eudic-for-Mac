@@ -22,10 +22,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/mast
 
 #### 天朝优化版
 
-(Homebrew 使用国内高校镜像源、安装文件托管于阿里云)
+(Homebrew 使用国内高校镜像源、使用 jsDelivr CDN 加速)
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Eudic_cn.sh)"
+sh -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/sarkrui/Eudic-for-Mac@master/Eudic_cn.sh)"
 ```
 
 ### 重新安装
