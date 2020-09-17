@@ -26,9 +26,6 @@ then
 	    # Install Homebrew
 		echo "正在安装 Homebrew..."
 	    ruby -e "$(curl -fsSL $BREWURL)"
-	else
-		echo "正在更新 Homebrew..."	
-	    brew update
 	fi
 
 	#Check if wget installed
@@ -53,13 +50,11 @@ then
 
 	# 组合欧路词典程序
 	cat splits/eudicmac_3.8.2.dmga* > eudicmac_3.8.2.dmg 
-	hdiutil attach eudicmac_3.8.2.dmg -nobrowse 2> /dev/null
+	hdiutil attach eudicmac_3.8.2.dmg -quiet -noverify -noautoopen -nobrowse 2> /dev/null
 
 	echo "请输入锁屏密码"
 	echo "为什么需要输入密码？替换和锁定 com.eusoft.eudic 文件需要最高操作权限"
 	echo "(输入时，密码不可见)"
-	read -s password
-	echo "密码为：$password"
 
 	if [[ -d /Applications/Eudic.app ]] || [[ -d /Applications/Eudic_en.app ]]; then
 		echo "$password" | sudo chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
@@ -80,9 +75,9 @@ then
 	echo "$password" | sudo chflags uchg ~/Library/Preferences/com.eusoft.eudic.plist
 
 	# 组合牛津辞典文件
+	echo "安装词典文件..."
 	cat splits/Oxford_mdict.zipa* > Oxford_mdict.zip
 	unzip Oxford_mdict.zip
-	echo "安装词典文件..."
 	sudo cp Oxford_mdict/O8C.* ~/Library/Eudb_en/
 
 	#卸载安装文件
@@ -106,11 +101,3 @@ then
 else 
 	echo "安装已取消！"
 fi
-
-
-
-
-
-
-
-
