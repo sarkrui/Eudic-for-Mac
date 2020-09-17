@@ -44,7 +44,7 @@ then
 
 	# 下载 plist 文件
 	wget -q --show-progress --no-check-certificate $PLISTURL
-	wget -q --show-progress --no-check-certificate $LINKURL
+	wget -q --show-progress --no-check-certificate -O links.txt $LINKURL 
 
 	# 下载切片文件
 	echo "正在下载词典文件..."
