@@ -1,9 +1,9 @@
 #! /bin/bash
 #Scripted by Sark Xing
 
-EUDICURL="https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.1/eudicmac_3.8.2.dmg"
-OXFORDURL="https://github.com/sarkrui/Eudic-for-Mac/releases/download/1.0.1/Oxford_mdict.zip"
 PLISTURL="https://github.com/sarkrui/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist"
+LINKURL="https://github.com/sarkrui/Eudic-for-Mac/raw/master/links.txt"
+BREWURL="https://raw.githubusercontent.com/Homebrew/install/master/install"
 
 read -p "你确定要安装欧路词典吗？[Y/N]" -n 1 -r
 echo    # (optional) move to a new line
@@ -25,7 +25,7 @@ then
 	if [[ $? != 0 ]] ; then
 	    # Install Homebrew
 		echo "正在安装 Homebrew..."
-	    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	    ruby -e "$(curl -fsSL $BREWURL)"
 	else
 		echo "正在更新 Homebrew..."	
 	    brew update
@@ -42,17 +42,18 @@ then
 		echo "wget 安装完成"
 	fi
 
-	#Check if aria2 installed
-	which -s aria2c
-	if [[ $? != 0 ]] ; then
-	    # Install Homebrew
-	    echo "正在安装 aria2"
-	    brew install aria2 
-	fi
-
+	# 下载 plist 文件
 	wget -q --show-progress --no-check-certificate $PLISTURL
-	aria2c --enable-rpc=false -c -x16 $EUDICURL
-	hdiutil attach eudicmac_3.8.2.dmg -nobrowse 
+	wget -q --show-progress --no-check-certificate $LINKURL
+
+	# 下载切片文件
+	echo "正在下载词典文件..."
+	mkdir splits && wget -q --show-progress --no-check-certificate -i links.txt -P splits 
+
+
+	# 组合欧路词典程序
+	cat splits/eudicmac_3.8.2.dmga* > eudicmac_3.8.2.dmg 
+	hdiutil attach eudicmac_3.8.2.dmg -nobrowse 2> /dev/null
 
 	echo "请输入锁屏密码"
 	echo "为什么需要输入密码？替换和锁定 com.eusoft.eudic 文件需要最高操作权限"
@@ -61,11 +62,6 @@ then
 	echo "密码为：$password"
 
 	if [[ -d /Applications/Eudic.app ]] || [[ -d /Applications/Eudic_en.app ]]; then
-	
-
-		# Run Command
-		echo "$password" | sudo chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist 
-
 		echo "$password" | sudo chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
 		echo "$password" | sudo rm ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
 		echo "$password" | sudo rm ~/Library/Cookies/com.eusoft.eudic.LightPeek.binarycookies 2> /dev/null
@@ -75,7 +71,7 @@ then
 		echo "$password" | sudo rm -r ~/Library/Application\ Support/com.eusoft.eudic 2> /dev/null		
 	fi
 
-	#Install Eudic and replace plist
+	# 安装和替换文件
 	echo "Installing Eudic..."
 	cp -R /Volumes/Eudic\ 欧路词典/Eudic.app /Applications/ 2> /dev/null
 	echo "$password" | sudo chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
@@ -83,22 +79,11 @@ then
 	echo "$password" | sudo cp com.eusoft.eudic.plist ~/Library/Preferences/
 	echo "$password" | sudo chflags uchg ~/Library/Preferences/com.eusoft.eudic.plist
 
-	#下载牛津高阶词典
-	while true; do
-		read -p "你想要下载牛津高阶词典吗？(Y/N)" yn
-		case $yn in
-	    	[Yy]* ) 
-				echo "正在下载词典文件..."
-				aria2c --enable-rpc=false -c -x16 $OXFORDURL
-				unzip Oxford_mdict.zip
-				echo "安装词典文件..."
-				sudo cp Oxford_mdict/O8C.* ~/Library/Eudb_en/
-			break;;
-	    	[Nn]* ) 
-				exit;;
-	    	* ) echo "输入错误";;
-		esac
-	done
+	# 组合牛津辞典文件
+	cat splits/Oxford_mdict.zipa* > Oxford_mdict.zip
+	unzip Oxford_mdict.zip
+	echo "安装词典文件..."
+	sudo cp Oxford_mdict/O8C.* ~/Library/Eudb_en/
 
 	#卸载安装文件
 	while true; do
