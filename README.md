@@ -6,13 +6,10 @@
 
 ![](https://i.imgur.com/zC1P0pt.gif)
 
-<details>
-  <summary>安装成功</summary>
-  <img src="https://i.imgur.com/QUPZKPt.png" alt="image-20200818182209777" style="zoom:40%;" />
-</details>
-
 
 ### 一键安装
+
+![](https://i.imgur.com/zGSfw6c.gif)
 
 #### 原生下载
 
@@ -22,11 +19,15 @@ export LANG="zh_CN.UTF-8" && sh -c "$(curl -fsSL https://raw.githubusercontent.c
 
 #### 天朝优化版
 
-(Homebrew 使用国内高校镜像源、使用 jsDelivr CDN 加速)
-
 ```bash
 export LANG="zh_CN.UTF-8" && sh -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/sarkrui/Eudic-for-Mac@master/Eudic_cn.sh)"
 ```
+
+<details>
+  <summary>安装成功</summary>
+  <img src="https://i.imgur.com/QUPZKPt.png" alt="image-20200818182209777" style="zoom:40%;" />
+</details>
+
 
 ### 重新安装
 
@@ -36,7 +37,7 @@ export LANG="zh_CN.UTF-8" && sh -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/sar
   <markdown>
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Activation.sh)"
+export LANG="zh_CN.UTF-8" && sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Activation.sh)"
 ```
   </markdown>
 
