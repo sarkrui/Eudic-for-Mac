@@ -4,11 +4,21 @@
 PLISTURL="https://github.com/sarkrui/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist"
 LINKURL="https://github.com/sarkrui/Eudic-for-Mac/raw/master/links.txt"
 BREWURL="https://raw.githubusercontent.com/Homebrew/install/master/install"
+PASSWORD=$(osascript -e 'set theResponse to display dialog "请输入你的解锁密码" default answer "" with icon note buttons {"Cancel", "Continue"} default button "Continue"')
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+clear;
+echo "请输入锁屏密码"	
+echo -e "为什么需要输入密码？\n${RED}替换和锁定 com.eusoft.eudic 文件需要最高操作权限${NC}"
+
 
 read -p "你确定要安装欧路词典吗？[Y/N]" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
+
+
 	if [[ -d ~/Downloads/Eudic ]]; then
 		#Uninstall previous Eudic.app and restore preferences
 		echo "正在卸载旧版欧路词典..."
@@ -51,27 +61,23 @@ then
 	cat splits/eudicmac_3.8.2.dmga* > eudicmac_3.8.2.dmg 
 	hdiutil attach eudicmac_3.8.2.dmg -quiet -noverify -noautoopen -nobrowse 2> /dev/null
 
-	echo "请输入锁屏密码"
-	echo "为什么需要输入密码？替换和锁定 com.eusoft.eudic 文件需要最高操作权限"
-	echo "(输入时，密码不可见)"
-
 	if [[ -d /Applications/Eudic.app ]] || [[ -d /Applications/Eudic_en.app ]]; then
-		echo "$password" | sudo chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
-		echo "$password" | sudo rm ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
-		echo "$password" | sudo rm ~/Library/Cookies/com.eusoft.eudic.LightPeek.binarycookies 2> /dev/null
-		echo "$password" | sudo rm ~/Library/Cookies/com.eusoft.eudic.binarycookies 2> /dev/null
-		echo "$password" | sudo rm -r ~/Library/Saved\ Application\ State/com.eusoft.eudic.savedState 2> /dev/null
-		echo "$password" | sudo rm -r ~/Library/Caches/com.eusoft.eudic 2> /dev/null
-		echo "$password" | sudo rm -r ~/Library/Application\ Support/com.eusoft.eudic 2> /dev/null		
+		echo "$PASSWORD" | sudo -S chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
+		echo "$PASSWORD" | sudo -S rm ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
+		echo "$PASSWORD" | sudo -S rm ~/Library/Cookies/com.eusoft.eudic.LightPeek.binarycookies 2> /dev/null
+		echo "$PASSWORD" | sudo -S rm ~/Library/Cookies/com.eusoft.eudic.binarycookies 2> /dev/null
+		echo "$PASSWORD" | sudo -S rm -r ~/Library/Saved\ Application\ State/com.eusoft.eudic.savedState 2> /dev/null
+		echo "$PASSWORD" | sudo -S rm -r ~/Library/Caches/com.eusoft.eudic 2> /dev/null
+		echo "$PASSWORD" | sudo -S rm -r ~/Library/Application\ Support/com.eusoft.eudic 2> /dev/null		
 	fi
 
 	# 安装和替换文件
 	echo "Installing Eudic..."
 	cp -R /Volumes/Eudic\ 欧路词典/Eudic.app /Applications/ 2> /dev/null
-	echo "$password" | sudo chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
-	echo "$password" | sudo rm ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
-	echo "$password" | sudo cp com.eusoft.eudic.plist ~/Library/Preferences/
-	echo "$password" | sudo chflags uchg ~/Library/Preferences/com.eusoft.eudic.plist
+	echo "$PASSWORD" | sudo -S chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
+	echo "$PASSWORD" | sudo -S rm ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
+	echo "$PASSWORD" | sudo -S cp com.eusoft.eudic.plist ~/Library/Preferences/
+	echo "$PASSWORD" | sudo -S chflags uchg ~/Library/Preferences/com.eusoft.eudic.plist
 
 	# 组合牛津辞典文件
 	echo "安装词典文件..."
