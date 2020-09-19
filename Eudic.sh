@@ -78,7 +78,7 @@ then
 	# 组合牛津辞典文件
 	echo "安装词典文件..."
 	cat splits/Oxford_mdict.zipa* > Oxford_mdict.zip
-	unzip Oxford_mdict.zip
+	unzip -qq Oxford_mdict.zip
 	echo "$PASSWORD" | sudo -S cp Oxford_mdict/O8C.* ~/Library/Eudb_en/
 
 	#卸载安装文件
