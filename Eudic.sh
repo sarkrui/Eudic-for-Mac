@@ -1,20 +1,16 @@
 #! /bin/bash
 #Scripted by Sark Xing
 
+read -p "你确定要安装欧路词典吗？[Y/N]" -n 1 -r
+echo    # (optional) move to a new line
+
 PLISTURL="https://github.com/sarkrui/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist"
 LINKURL="https://github.com/sarkrui/Eudic-for-Mac/raw/master/links.txt"
 BREWURL="https://raw.githubusercontent.com/Homebrew/install/master/install"
-PASSWORD=$(osascript -e 'set theResponse to display dialog "请输入你的解锁密码" default answer "" with icon note buttons {"Cancel", "Continue"} default button "Continue"')
-RED='\033[0;31m'
-NC='\033[0m' # No Color
+PASSWORD=$(osascript -e 'display dialog "请输入你的解锁密码:" default answer "" with title "替换和锁定 com.eusoft.eudic 文件需要最高操作权限" with icon note buttons {"Cancel", "Continue"} default button "Continue"
+set the VAL to text returned of the result
+return VAL')
 
-clear;
-echo "请输入锁屏密码"	
-echo -e "为什么需要输入密码？\n${RED}替换和锁定 com.eusoft.eudic 文件需要最高操作权限${NC}"
-
-
-read -p "你确定要安装欧路词典吗？[Y/N]" -n 1 -r
-echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
@@ -83,7 +79,7 @@ then
 	echo "安装词典文件..."
 	cat splits/Oxford_mdict.zipa* > Oxford_mdict.zip
 	unzip Oxford_mdict.zip
-	sudo cp Oxford_mdict/O8C.* ~/Library/Eudb_en/
+	echo "$PASSWORD" | sudo -S cp Oxford_mdict/O8C.* ~/Library/Eudb_en/
 
 	#卸载安装文件
 	while true; do
