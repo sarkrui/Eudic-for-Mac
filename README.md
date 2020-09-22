@@ -23,24 +23,16 @@ export LANG="zh_CN.UTF-8" && sh -c "$(curl -fsSL https://raw.githubusercontent.c
 export LANG="zh_CN.UTF-8" && sh -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/sarkrui/Eudic-for-Mac@master/Eudic_cn.sh)"
 ```
 
-<details>
-  <summary>安装成功</summary>
-  <img src="https://i.imgur.com/QUPZKPt.png" alt="image-20200818182209777" style="zoom:40%;" />
-</details>
-
-
-### 重新安装
-
-<details>
-  <summary>点击展开</summary>
-
-  <markdown>
+#### 重新安装
 
 ```bash
 export LANG="zh_CN.UTF-8" && sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Activation.sh)"
 ```
-  </markdown>
 
+
+<details>
+  <summary>安装成功</summary>
+  <img src="https://i.imgur.com/QUPZKPt.png" alt="image-20200818182209777" style="zoom:40%;" />
 </details>
 
 
