@@ -24,21 +24,20 @@ export LANG="zh_CN.UTF-8" && sh -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/sar
   <img src="https://i.imgur.com/QUPZKPt.png" alt="image-20200818182209777" style="zoom:40%;" />
 </details>
 
-### 启用词库
-
+#### 启用词库
 <details>
   <summary>点击展开</summary>
   <img src="https://i.imgur.com/Xy9lUcB.png" alt="image-20200818182209777" style="zoom:40%;" />
   <img src="https://i.imgur.com/K8JDSud.png" alt="image-20200818182352595" style="zoom:40%;" />
 </details>
+
 #### 重新安装
 
 ```bash
 export LANG="zh_CN.UTF-8" && sh -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/sarkrui/Eudic-for-Mac@master/Activation.sh)"
 ```
 
-
-### 手动安装
+#### 手动安装
 
 <details>
   <summary>点击展开</summary>
