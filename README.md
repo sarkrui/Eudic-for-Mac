@@ -26,7 +26,7 @@ export LANG="zh_CN.UTF-8" && sh -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/sar
 #### 重新安装
 
 ```bash
-export LANG="zh_CN.UTF-8" && sh -c "$(curl -fsSL https://raw.githubusercontent.com/sarkrui/Eudic-for-Mac/master/Activation.sh)"
+export LANG="zh_CN.UTF-8" && sh -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/sarkrui/Eudic-for-Mac@master/Activation.sh)"
 ```
 
 

@@ -23,7 +23,7 @@ then
 		mkdir ~/Downloads/Eudic && cd  ~/Downloads/Eudic
 	fi
 	
-	wget --no-check-certificate https://github.com/sarkrui/Eudic-for-Mac/raw/master/com.eusoft.eudic.plist 2> /dev/null
+	wget --no-check-certificate https://cdn.jsdelivr.net/gh/sarkrui/Eudic-for-Mac@master/com.eusoft.eudic.plist 2> /dev/null
 	echo "$PASSWORD" | sudo -S chflags nouchg ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
 	echo "$PASSWORD" | sudo -S rm ~/Library/Preferences/com.eusoft.eudic.plist 2> /dev/null
 	echo "$PASSWORD" | sudo -S rm ~/Library/Cookies/com.eusoft.eudic.LightPeek.binarycookies 2> /dev/null
