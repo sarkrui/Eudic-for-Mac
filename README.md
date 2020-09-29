@@ -6,10 +6,9 @@
 
 ![](https://i.imgur.com/zC1P0pt.gif)
 
-
 ### 一键安装
 
-![](https://i.imgur.com/zGSfw6c.gif)
+![](https://i.imgur.com/OvVuKXy.gif)
 
 #### 原生下载
 
